@@ -8,19 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    //Remember it will decode our JSON data as soon as we call it
+    let apController = PredatorController()
+    
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("How the F does this work")
+        NavigationView() {
+            List {
+                ForEach(apController.apexPredators) {
+                    predator in
+                    NavigationLink(destination: Text("Dino details go here")) {
+                        //Text(predator.name)
+                        //Damn this is really slick.
+                        PredatorRow(predator:predator)
+                    }
+                }
+            }
+            .navigationTitle("Apex Predators")
         }
-        .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.dark)
     }
 }
