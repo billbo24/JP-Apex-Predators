@@ -35,7 +35,7 @@ struct ApexPredator: Codable, Identifiable {
     }
 }
 
-struct MovieScene: Codable {
+struct MovieScene: Codable, Identifiable {
     let id: Int //movie scene number
     let movie: String
     let sceneDescription: String //
